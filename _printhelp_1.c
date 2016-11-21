@@ -49,7 +49,7 @@ int _printstring(va_list c, char *buffer, int size)
  */
 int _printnum(va_list c, char *buffer, int size)
 {
-	int m, i, j;
+	long m, i, j;
 	char *num;
 	char sign;
 
