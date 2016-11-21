@@ -6,8 +6,7 @@
 
 /**
  * _strcpy - copies and returns a string; triggers print when buffer is full
- *
- * @dest: destination string, output
+ * @buffer: destination string, output
  * @src: string to be copied
  * @size: size of current buffer
  * Return: dest

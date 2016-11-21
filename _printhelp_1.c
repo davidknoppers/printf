@@ -7,6 +7,8 @@
 /**
  * _printchar - print out character
  * @c: input
+ * @buffer: buffer
+ * @size: position in buffer
  * Return: length 1
  */
 int _printchar(va_list c, char *buffer, int size)
@@ -23,6 +25,8 @@ int _printchar(va_list c, char *buffer, int size)
 /**
  * _printstring - print out string
  * @c: input
+ * @buffer: buffer
+ * @size: position in buffer
  * Return: length of string
  */
 int _printstring(va_list c, char *buffer, int size)
@@ -39,6 +43,8 @@ int _printstring(va_list c, char *buffer, int size)
 /**
  * _printnum - print out number
  * @c: input
+ * @buffer: buffer
+ * @size: size
  * Return: length of num
  */
 int _printnum(va_list c, char *buffer, int size)
@@ -75,6 +81,8 @@ int _printnum(va_list c, char *buffer, int size)
 /**
  * _printunsign - print unsigned nums
  * @c: input
+ * @buffer: buffer
+ * @size: lol
  * Return: length of num
  */
 int _printunsign(va_list c, char *buffer, int size)
