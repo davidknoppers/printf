@@ -15,9 +15,9 @@ int _printchar(va_list c, char *buffer, int size)
 {
 	char *j;
 
-	j = va_arg(c, char *);
+	*j = (char)va_arg(c, int);
 	if (j == NULL)
-		return (0);
+		return (size);
 	size = _strcpy(buffer, j, size);
 	return (size);
 }
@@ -49,23 +49,26 @@ int _printstring(va_list c, char *buffer, int size)
  */
 int _printnum(va_list c, char *buffer, int size)
 {
-	long m, i, j;
+	int m, i, j;
 	char *num;
 	char sign;
 
 	sign = '-';
 	m = va_arg(c, int);
+	printf("%d\n", m);
+	printf("size before %d\n", size);
+	if (m < 0)
+	{
+		m = m * -1;
+		size = _strcpy(buffer, &sign, size);
+	}
+	printf("size after %d\n", size);
 	j = m;
 	for (i = 0; j > 0; i++)
 		j = j / 10;
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
 		return (size);
-	if (m < 0)
-	{
-		m = m * -1;
-		size = _strcpy(buffer, &sign, size);
-	}
 	for (j = 0; j < i; j++)
 	{
 		num[j] = m % 10 + '0';
