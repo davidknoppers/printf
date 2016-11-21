@@ -16,7 +16,7 @@ void _puts(char *str);
 int _strcpy(char *buffer, char *src, int size);
 
 /* print buffer */
-int _print_buffer (char *buffer, int size);
+int _print_buffer(char *buffer, int size);
 
 /* LE PRINTF */
 int _printf(const char *format, ...);
