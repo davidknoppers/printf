@@ -45,6 +45,9 @@ int _printhexUP(va_list c);
 /* print binary */
 int _printbinary(va_list c);
 
+/* printpercent */
+int _printpercent(va_list c, char *buffer, int size);
+
 /**
  * struct functions - structure to find corresponding functions
  * @format_str: format string to compare to
