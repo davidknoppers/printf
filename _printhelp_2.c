@@ -26,6 +26,7 @@ sl_t _oct(va_list c, char *buffer, sl_t val)
 	temp[k] = '\0';
 	temp = rev_string(temp);
 	val = _strcpy(buffer, temp, val);
+	free(temp);
 	return (val);
 }
 
@@ -38,7 +39,7 @@ sl_t _oct(va_list c, char *buffer, sl_t val)
  */
 sl_t _hex(va_list c, char *buffer, sl_t val)
 {
-	unsigned int i, j, dig, k;
+	unsigned int i, dig, j, k;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -49,10 +50,7 @@ sl_t _hex(va_list c, char *buffer, sl_t val)
 
 	k = va_arg(c, unsigned int);
 	dig = k;
-	for (i = 0; k / 10 > 0; i++)
-		k = k / 10;
-	k = dig;
-	temp = malloc((i + 1) * sizeof(char));
+	temp = malloc(9 * sizeof(char));
 	for (i = 0; k != 0; i++)
 	{
 		dig = k % 16;
@@ -77,7 +75,7 @@ sl_t _hex(va_list c, char *buffer, sl_t val)
  */
 sl_t _hexUP(va_list c, char *buffer, sl_t val)
 {
-	unsigned int i, j, dig, k;
+	unsigned int i, j, k, dig;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -88,10 +86,7 @@ sl_t _hexUP(va_list c, char *buffer, sl_t val)
 
 	k = va_arg(c, unsigned int);
 	dig = k;
-	for (i = 0; k / 10 > 0; i++)
-		k = k / 10;
-	k = dig;
-	temp = malloc((i + 1) * sizeof(char));
+	temp = malloc(9 * sizeof(char));
 	for (i = 0; k != 0; i++)
 	{
 		dig = k % 16;
