@@ -30,7 +30,7 @@ sl_t _char(va_list c, char *buffer, sl_t val)
 sl_t _str(va_list c, char *buffer, sl_t val)
 {
 	char *temp;
-	char nil[7] = {'(', 'n', 'i', 'l', ')', '\0'};
+	char nil[8] = {'(', 'n', 'u', 'l', 'l', ')', '\0'};
 
 	temp = va_arg(c, char *);
 	if (temp == NULL)
