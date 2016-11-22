@@ -56,13 +56,13 @@ int _printnum(va_list c, char *buffer, int size)
 	*(sign + 1) = '\0';
 	s = 1;
 	m = va_arg(c, int);
-	if (m > 0)
+	if (m >= 0)
 	{
 		s = 0;
 		m = m * -1;
 	}
 	j = m;
-	for (i = 0; j != 0; i++)
+	for (i = 1; j != 0; i++)
 		j = j / 10;
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
