@@ -63,7 +63,7 @@ typedef struct functions
  */
 typedef struct hexchart
 {
-	int dec;
+	unsigned int dec;
 	char hex;
 } hex_t;
 #endif
