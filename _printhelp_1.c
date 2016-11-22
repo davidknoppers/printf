@@ -132,6 +132,7 @@ int _printpercent(va_list c, char *buffer, int size)
 	char *percent;
 
 	percent = malloc(sizeof(char) * 2);
+	*percent = va_arg(c, int);
 	*percent = '%';
 	*(percent + 1) = '\0';
 	size = _strcpy(buffer, percent, size);
