@@ -62,6 +62,7 @@ sl_t _bi(va_list c, char *buffer, sl_t val);
 /* printpercent */
 sl_t _percent(va_list c, char *buffer, sl_t val);
 
+
 /**
  * struct functions - structure to find corresponding functions
  * @format_str: format string to compare to
