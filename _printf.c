@@ -20,10 +20,7 @@ int _printf(const char *format, ...)
 		{"x", _printhex}, {"X", _printhexUP}, {"b", _printbinary},
 	};
 
-	size = 0;
-	temp = malloc(sizeof(char) * 2);
-	if (temp == NULL)
-		return (size);
+	size = 0; temp = malloc(sizeof(char) * 2);
 	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
