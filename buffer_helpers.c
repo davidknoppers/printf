@@ -13,9 +13,10 @@
  */
 int _strcpy(char *buffer, char *src, int size)
 {
-	int n;
+	int n, i;
 
 	n = 0;
+	i = size;
 	while (src[n] != '\0')
 	{
 		buffer[size] = src[n];
