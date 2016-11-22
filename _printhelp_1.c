@@ -32,10 +32,18 @@ int _printchar(va_list c, char *buffer, int size)
 int _printstring(va_list c, char *buffer, int size)
 {
 	char *temp;
+	char *nil;
 
+	nil = malloc(sizeof(char) * 7);
+	if (nil == NULL)
+		return (size);
+	nil = "(null)";
 	temp = va_arg(c, char *);
 	if (temp == NULL)
-		return (0);
+	{
+		size = _strcpy(buffer, nil, size);
+		return (size);
+	}
 	size = _strcpy(buffer, temp, size);
 	return (size);
 }
