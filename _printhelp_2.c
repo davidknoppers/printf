@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdarg.h>
@@ -40,7 +38,7 @@ sl_t _oct(va_list c, char *buffer, sl_t val)
  */
 sl_t _hex(va_list c, char *buffer, sl_t val)
 {
-	unsigned int i, j, dig, k, z;
+	unsigned int i, j, dig, k;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -53,7 +51,6 @@ sl_t _hex(va_list c, char *buffer, sl_t val)
 	dig = k;
 	for (i = 0; k / 10 > 0; i++)
 		k = k / 10;
-	z = i;
 	k = dig;
 	temp = malloc((i + 1) * sizeof(char));
 	for (i = 0; k != 0; i++)
@@ -80,7 +77,7 @@ sl_t _hex(va_list c, char *buffer, sl_t val)
  */
 sl_t _hexUP(va_list c, char *buffer, sl_t val)
 {
-	unsigned int i, j, dig, k, z;
+	unsigned int i, j, dig, k;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -93,7 +90,6 @@ sl_t _hexUP(va_list c, char *buffer, sl_t val)
 	dig = k;
 	for (i = 0; k / 10 > 0; i++)
 		k = k / 10;
-	z = i;
 	k = dig;
 	temp = malloc((i + 1) * sizeof(char));
 	for (i = 0; k != 0; i++)

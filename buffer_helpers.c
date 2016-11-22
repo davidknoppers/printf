@@ -1,8 +1,6 @@
 #include "holberton.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * _strcpy - copies and returns a string; triggers print when buffer is full
