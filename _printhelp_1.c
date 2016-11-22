@@ -61,7 +61,6 @@ int _printnum(va_list c, char *buffer, int size)
 		s = 0;
 		m = m * -1;
 	}
-	printf("sign is %d\n", s);
 	j = m;
 	for (i = 0; j != 0; i++)
 		j = j / 10;
