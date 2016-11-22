@@ -22,31 +22,31 @@ int _print_buffer(char *buffer, int size);
 int _printf(const char *format, ...);
 
 /* printchar function */
-int _printchar(va_list c, char *buffer, int size);
+int _char(va_list c, char *buffer, int size);
 
 /* printstring function */
-int _printstring(va_list c, char *buffer, int size);
+int _str(va_list c, char *buffer, int size);
 
 /* printnum function */
-int _printnum(va_list c, char *buffer, int size);
+int _num(va_list c, char *buffer, int size);
 
 /* printunsign function */
-int _printunsign(va_list c, char *buffer, int size);
+int _unsign(va_list c, char *buffer, int size);
 
 /* printoct function */
-int _printoct(va_list c);
+int _oct(va_list c, char *buffer, int size);
 
 /* printhex function */
-int _printhex(va_list c);
+int _hex(va_list c);
 
 /* print upper case hex function */
-int _printhexUP(va_list c);
+int _hexUP(va_list c);
 
 /* print binary */
-int _printbinary(va_list c);
+int _bi(va_list c);
 
 /* printpercent */
-int _printpercent(va_list c, char *buffer, int size);
+int _percent(va_list c, char *buffer, int size);
 
 /**
  * struct functions - structure to find corresponding functions

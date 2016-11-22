@@ -11,7 +11,7 @@
  * @size: position in buffer
  * Return: length 1
  */
-int _printchar(va_list c, char *buffer, int size)
+int _char(va_list c, char *buffer, int size)
 {
 	char *j;
 
@@ -29,7 +29,7 @@ int _printchar(va_list c, char *buffer, int size)
  * @size: position in buffer
  * Return: length of string
  */
-int _printstring(va_list c, char *buffer, int size)
+int _str(va_list c, char *buffer, int size)
 {
 	char *temp;
 	char *nil;
@@ -55,7 +55,7 @@ int _printstring(va_list c, char *buffer, int size)
  * @size: size
  * Return: length of num
  */
-int _printnum(va_list c, char *buffer, int size)
+int _num(va_list c, char *buffer, int size)
 {
 	int m, j, i, s;
 	char *num;
@@ -104,7 +104,7 @@ int _printnum(va_list c, char *buffer, int size)
  * @size: lol
  * Return: length of num
  */
-int _printunsign(va_list c, char *buffer, int size)
+int _unsign(va_list c, char *buffer, int size)
 {
 	unsigned int m, i, j;
 	char *num;
@@ -135,7 +135,7 @@ int _printunsign(va_list c, char *buffer, int size)
  * @size: location in buff
  * Return: size
  */
-int _printpercent(va_list c, char *buffer, int size)
+int _percent(va_list c, char *buffer, int size)
 {
 	char *percent;
 

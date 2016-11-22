@@ -15,10 +15,9 @@ int _printf(const char *format, ...)
 	char buffer[1024], *temp;
 	int i, j, z, num_of_formats, size;
 	print_t c_or_str[] = {
-		{"c", _printchar}, {"s", _printstring}, {"d", _printnum},
-		{"i", _printnum}, {"u", _printunsign}, {"o", _printoct},
-		{"x", _printhex}, {"X", _printhexUP}, {"b", _printbinary},
-		{"%", _printpercent},
+		{"c", _char}, {"s", _str}, {"d", _num}, {"i", _num},
+		{"u", _unsign}, {"o", _oct}, {"x", _hex}, {"X", _hexUP},
+		{"b", _bi}, {"%", _percent},
 	};
 
 	size = 0; temp = malloc(sizeof(char) * 2);
