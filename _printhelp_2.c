@@ -5,8 +5,10 @@
 #include <stdarg.h>
 
 /**
- * _printoct - print out octal number
+ * _oct - print out octal number
  * @c: argument
+ * @buffer: buffer stuff
+ * @size: size
  * Return: octal value
  */
 int _oct(va_list c, char *buffer, int size)
@@ -30,7 +32,7 @@ int _oct(va_list c, char *buffer, int size)
 }
 
 /**
- * _printhex - print out hexadecimal
+ * _hex - print out hexadecimal
  * @c: argument
  * Return: beginning of hex string
  */
@@ -67,7 +69,7 @@ int _hex(va_list c)
 }
 
 /**
- * _printhexUP - print upper case
+ * _hexUP - print upper case
  * @c: argument
  * Return: hex string
  */
@@ -104,7 +106,7 @@ int _hexUP(va_list c)
 }
 
 /**
- * _printbinary - print out binary code
+ * _bi - print out binary code
  * @c: input
  * Return: length
  */
