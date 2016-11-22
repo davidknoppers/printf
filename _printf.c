@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	};
 
 	size = 0;
-	temp = malloc(sizeof(char));
+	temp = malloc(sizeof(char) * 2);
 	if (temp == NULL)
 		return (size);
 	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+	free(temp);
 	_print_buffer(buffer, size);
 	return (size);
 }
