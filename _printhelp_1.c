@@ -58,14 +58,11 @@ int _printnum(va_list c, char *buffer, int size)
 	sign = malloc(sizeof(char));
 	*sign = '-';
 	m = va_arg(c, int);
-	printf("%d\n", m);
-	printf("size before %d\n", size);
 	if (m < 0)
 	{
 		m = m * -1;
 		size = _strcpy(buffer, sign, size);
 	}
-	printf("size after %d\n", size);
 	j = m;
 	for (i = 0; j > 0; i++)
 		j = j / 10;
