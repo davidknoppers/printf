@@ -37,7 +37,7 @@ int _print_buffer(char *buffer, int size)
 {
 	int i;
 
-	write(1, buffer, size);
+	write(1, buffer, 1024);
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
 	size = 0;

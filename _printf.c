@@ -39,17 +39,18 @@ int _printf(const char *format, ...)
 				    format[i + 1] == *(c_or_str[j]).format_str)
 				{
 					size = c_or_str[j].f(ap, buffer, size);
-					z = 0, i++; break;
+					z = 0, i++;
+					break;
 				}
 			}
 			if (z != 0)
 			{
 				*temp = format[i];
+				*(temp + 1) = '\0';
 				size = _strcpy(buffer, temp, size);
 			}
 		}
 	}
-	buffer[size + 1] = '\0';
 	_print_buffer(buffer, size);
 	return (size);
 }
