@@ -30,12 +30,8 @@ sl_t _char(va_list c, char *buffer, sl_t val)
 sl_t _str(va_list c, char *buffer, sl_t val)
 {
 	char *temp;
-	char *nil;
+	char nil[7] = {'(', 'n', 'i', 'l', ')', '\0'};
 
-	nil = malloc(sizeof(char) * 7);
-	if (nil == NULL)
-		return (val);
-	nil = "(null)";
 	temp = va_arg(c, char *);
 	if (temp == NULL)
 	{
@@ -43,7 +39,6 @@ sl_t _str(va_list c, char *buffer, sl_t val)
 		return (val);
 	}
 	val = _strcpy(buffer, temp, val);
-	free(nil);
 	return (val);
 }
 
