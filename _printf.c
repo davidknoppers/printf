@@ -20,7 +20,8 @@ int _printf(const char *format, ...)
 		{"b", _bi}, {"%", _percent},
 	};
 
-	size = 0; temp = malloc(sizeof(char) * 2);
+	size = 0;
+	temp = malloc(sizeof(char) * 2);
 	if (temp == NULL)
 		return (size);
 	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
@@ -38,16 +39,20 @@ int _printf(const char *format, ...)
 				    format[i + 1] == *(c_or_str[j]).format_str)
 				{
 					size = c_or_str[j].f(ap, buffer, size);
-					z = 0, i++; break;
+					z = 0;
+					i++;
+					break;
 				}
 			}
 			if (z != 0)
 			{
-				*temp = format[i]; *(temp + 1) = '\0';
+				*temp = format[i];
+				*(temp + 1) = '\0';
 				size = _strcpy(buffer, temp, size);
 			}
 		}
 	}
-	i = size; free(temp); _print_buffer(buffer, size);
-	return (i);
+	free(temp);
+	_print_buffer(buffer, size);
+	return (size);
 }
