@@ -8,54 +8,55 @@
  * _char - print out character
  * @c: input
  * @buffer: buffer
- * @size: position in buffer
+ * @val: position in buffer
  * Return: length 1
  */
-int _char(va_list c, char *buffer, int size)
+sl_t _char(va_list c, char *buffer, sl_t val)
 {
 	char *j;
 
 	j = malloc(sizeof(char) * 2);
 	*j = va_arg(c, int);
 	*(j + 1) = '\0';
-	size = _strcpy(buffer, j, size);
-	return (size);
+	val = _strcpy(buffer, j, val);
+	return (val);
 }
 
 /**
  * _str - print out string
  * @c: input
  * @buffer: buffer
- * @size: position in buffer
+ * @val: position in buffer
  * Return: length of string
  */
-int _str(va_list c, char *buffer, int size)
+sl_t _str(va_list c, char *buffer, sl_t val)
 {
 	char *temp;
 	char *nil;
 
 	nil = malloc(sizeof(char) * 7);
 	if (nil == NULL)
-		return (size);
+		return (val);
 	nil = "(null)";
 	temp = va_arg(c, char *);
 	if (temp == NULL)
 	{
-		size = _strcpy(buffer, nil, size);
-		return (size);
+		val = _strcpy(buffer, nil, val);
+		return (val);
 	}
-	size = _strcpy(buffer, temp, size);
-	return (size);
+	val = _strcpy(buffer, temp, val);
+	free(nil);
+	return (val);
 }
 
 /**
  * _num - print out number
  * @c: input
  * @buffer: buffer
- * @size: size
+ * @val: size
  * Return: length of num
  */
-int _num(va_list c, char *buffer, int size)
+sl_t _num(va_list c, char *buffer, sl_t val)
 {
 	int m, j, i, s;
 	char *num;
@@ -81,30 +82,30 @@ int _num(va_list c, char *buffer, int size)
 	}
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
-		return (size);
+		return (val);
 	for (j = 0; j < i; j++)
 	{
 		num[j] = (m % 10) * (-1) + '0';
 		m = m / 10;
 	}
 	if (s == 1)
-		size = _strcpy(buffer, sign, size);
+		val = _strcpy(buffer, sign, val);
 	num[j] = '\0';
 	num = rev_string(num);
-	size = _strcpy(buffer, num, size);
+	val = _strcpy(buffer, num, val);
 	free(num);
 	free(sign);
-	return (size);
+	return (val);
 }
 
 /**
  * _unsign - print unsigned nums
  * @c: input
  * @buffer: buffer
- * @size: lol
+ * @val: lol
  * Return: length of num
  */
-int _unsign(va_list c, char *buffer, int size)
+sl_t _unsign(va_list c, char *buffer, sl_t val)
 {
 	unsigned int m, i, j;
 	char *num;
@@ -115,7 +116,7 @@ int _unsign(va_list c, char *buffer, int size)
 		j = j / 10;
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
-		return (size);
+		return (val);
 	for (j = 0; j < i; j++)
 	{
 		num[j] = m % 10 + '0';
@@ -123,27 +124,29 @@ int _unsign(va_list c, char *buffer, int size)
 	}
 	num[j] = '\0';
 	num = rev_string(num);
-	size = _strcpy(buffer, num, size);
+	val = _strcpy(buffer, num, val);
 	free(num);
-	return (size);
+	return (val);
 }
 
 /**
  * _percent - print only one percent sign
  * @c: input
  * @buffer: buffer to print to
- * @size: location in buff
+ * @val: location in buff
  * Return: size
  */
-int _percent(va_list c, char *buffer, int size)
+sl_t _percent(va_list c, char *buffer, sl_t val)
 {
 	char *percent;
 
 	percent = malloc(sizeof(char) * 2);
+	if (percent == NULL)
+		return (val);
 	*percent = va_arg(c, int);
 	*percent = '%';
 	*(percent + 1) = '\0';
-	size = _strcpy(buffer, percent, size);
+	val = _strcpy(buffer, percent, val);
 	free(percent);
-	return (size);
+	return (val);
 }
