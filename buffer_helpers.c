@@ -14,6 +14,14 @@ sl_t _strcpy(char *buffer, char *src, sl_t val)
 	int n;
 
 	n = 0;
+
+	if (src[0] == '\0')
+	{
+		buffer[val.size] = src[0];
+		val.size++;
+		val.len++;
+		return (val);
+	}
 	while (src[n] != '\0')
 	{
 		buffer[val.size] = src[n];
