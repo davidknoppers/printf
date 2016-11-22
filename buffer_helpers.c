@@ -22,7 +22,9 @@ int _strcpy(char *buffer, char *src, int size)
 		n++;
 		size++;
 		if (size >= 1023)
+		{
 			size = _print_buffer(buffer, size);
+		}
 	}
 	return (size);
 }
