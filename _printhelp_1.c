@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * _printchar - print out character
+ * _char - print out character
  * @c: input
  * @buffer: buffer
  * @size: position in buffer
@@ -23,7 +23,7 @@ int _char(va_list c, char *buffer, int size)
 }
 
 /**
- * _printstring - print out string
+ * _str - print out string
  * @c: input
  * @buffer: buffer
  * @size: position in buffer
@@ -49,7 +49,7 @@ int _str(va_list c, char *buffer, int size)
 }
 
 /**
- * _printnum - print out number
+ * _num - print out number
  * @c: input
  * @buffer: buffer
  * @size: size
@@ -98,7 +98,7 @@ int _num(va_list c, char *buffer, int size)
 }
 
 /**
- * _printunsign - print unsigned nums
+ * _unsign - print unsigned nums
  * @c: input
  * @buffer: buffer
  * @size: lol
@@ -129,7 +129,7 @@ int _unsign(va_list c, char *buffer, int size)
 }
 
 /**
- * _printpercent - print only one percent sign
+ * _percent - print only one percent sign
  * @c: input
  * @buffer: buffer to print to
  * @size: location in buff
