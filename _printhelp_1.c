@@ -119,3 +119,22 @@ int _printunsign(va_list c, char *buffer, int size)
 	free(num);
 	return (size);
 }
+
+/**
+ * _printpercent - print only one percent sign
+ * @c: input
+ * @buffer: buffer to print to
+ * @size: location in buff
+ * Return: size
+ */
+int _printpercent(va_list c, char *buffer, int size)
+{
+	char *percent;
+
+	percent = malloc(sizeof(char) * 2);
+	*percent = '%';
+	*(percent + 1) = '\0';
+	size = _strcpy(buffer, percent, size);
+	free(percent);
+	return (size);
+}
