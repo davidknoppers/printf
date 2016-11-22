@@ -19,11 +19,11 @@ int _printf(const char *format, ...)
 		{"u", _unsign}, {"o", _oct}, {"x", _hex}, {"X", _hexUP},
 		{"b", _bi}, {"%", _percent},
 	};
+	sl_t vals = {0, 0};
 
-	size = 0;
 	temp = malloc(sizeof(char) * 2);
 	if (temp == NULL)
-		return (size);
+		return (vals.len);
 	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
@@ -38,21 +38,17 @@ int _printf(const char *format, ...)
 				if (format[i] == '%' &&
 				    format[i + 1] == *(c_or_str[j]).format_str)
 				{
-					size = c_or_str[j].f(ap, buffer, size);
-					z = 0;
-					i++;
-					break;
+					vals = c_or_str[j].f(ap, buffer, vals);
+					z = 0; i++; break;
 				}
 			}
 			if (z != 0)
 			{
-				*temp = format[i];
-				*(temp + 1) = '\0';
-				size = _strcpy(buffer, temp, size);
+				*temp = format[i]; *(temp + 1) = '\0';
+				vals = _strcpy(buffer, temp, vals);
 			}
 		}
 	}
-	free(temp);
-	_print_buffer(buffer, size);
+	free(temp); _print_buffer(buffer, vals); size = vals.len;
 	return (size);
 }

@@ -3,6 +3,17 @@
 
 #include <stdarg.h>
 
+/**
+ * struct size_len - store size of buffer and total length
+ * @size: size in buffer
+ * @len: total length
+ */
+typedef struct size_len
+{
+	int size;
+	int len;
+} sl_t;
+
 /* basic putchar function */
 int _putchar(char c);
 
@@ -13,40 +24,40 @@ char *rev_string(char *s);
 void _puts(char *str);
 
 /* string copy */
-int _strcpy(char *buffer, char *src, int size);
+sl_t _strcpy(char *buffer, char *src, sl_t val);
 
 /* print buffer */
-int _print_buffer(char *buffer, int size);
+sl_t _print_buffer(char *buffer, sl_t val);
 
 /* LE PRINTF */
 int _printf(const char *format, ...);
 
 /* printchar function */
-int _char(va_list c, char *buffer, int size);
+sl_t _char(va_list c, char *buffer, sl_t val);
 
 /* printstring function */
-int _str(va_list c, char *buffer, int size);
+sl_t _str(va_list c, char *buffer, sl_t val);
 
 /* printnum function */
-int _num(va_list c, char *buffer, int size);
+sl_t _num(va_list c, char *buffer, sl_t val);
 
 /* printunsign function */
-int _unsign(va_list c, char *buffer, int size);
+sl_t _unsign(va_list c, char *buffer, sl_t val);
 
 /* printoct function */
-int _oct(va_list c, char *buffer, int size);
+sl_t _oct(va_list c, char *buffer, sl_t val);
 
 /* printhex function */
-int _hex(va_list c);
+sl_t _hex(va_list c, char *buffer, sl_t val);
 
 /* print upper case hex function */
-int _hexUP(va_list c);
+sl_t _hexUP(va_list c, char *buffer, sl_t val);
 
 /* print binary */
-int _bi(va_list c);
+sl_t _bi(va_list c, char *buffer, sl_t val);
 
 /* printpercent */
-int _percent(va_list c, char *buffer, int size);
+sl_t _percent(va_list c, char *buffer, sl_t val);
 
 /**
  * struct functions - structure to find corresponding functions
@@ -56,7 +67,7 @@ int _percent(va_list c, char *buffer, int size);
 typedef struct functions
 {
 	char *format_str;
-	int (*f)();
+	sl_t (*f)();
 } print_t;
 
 /**

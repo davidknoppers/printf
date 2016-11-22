@@ -8,17 +8,17 @@
  * _oct - print out octal number
  * @c: argument
  * @buffer: buffer stuff
- * @size: size
+ * @val: size
  * Return: octal value
  */
-int _oct(va_list c, char *buffer, int size)
+sl_t _oct(va_list c, char *buffer, sl_t val)
 {
 	unsigned int k, j;
 	char *temp;
 
 	temp = malloc(sizeof(char) * 12);
 	if (temp == NULL)
-		return (size);
+		return (val);
 	j = va_arg(c, unsigned int);
 	for (k = 0; j != 0; k++)
 	{
@@ -27,16 +27,18 @@ int _oct(va_list c, char *buffer, int size)
 	}
 	temp[k] = '\0';
 	temp = rev_string(temp);
-	size = _strcpy(buffer, temp, size);
-	return (size);
+	val = _strcpy(buffer, temp, val);
+	return (val);
 }
 
 /**
  * _hex - print out hexadecimal
  * @c: argument
+ * @buffer: buffer to write to
+ * @val: length and size
  * Return: beginning of hex string
  */
-int _hex(va_list c)
+sl_t _hex(va_list c, char *buffer, sl_t val)
 {
 	unsigned int i, j, dig, k, z;
 	char *temp;
@@ -64,16 +66,19 @@ int _hex(va_list c)
 	}
 	temp[i] = '\0';
 	temp = rev_string(temp);
-	_puts(temp);
-	return (z);
+	val = _strcpy(buffer, temp, val);
+	free(temp);
+	return (val);
 }
 
 /**
  * _hexUP - print upper case
  * @c: argument
+ * @buffer: buffer to print to
+ * @val: length and size
  * Return: hex string
  */
-int _hexUP(va_list c)
+sl_t _hexUP(va_list c, char *buffer, sl_t val)
 {
 	unsigned int i, j, dig, k, z;
 	char *temp;
@@ -101,16 +106,19 @@ int _hexUP(va_list c)
 	}
 	temp[i] = '\0';
 	temp = rev_string(temp);
-	_puts(temp);
-	return (z);
+	val = _strcpy(buffer, temp, val);
+	free(temp);
+	return (val);
 }
 
 /**
  * _bi - print out binary code
  * @c: input
+ * @buffer: buffer to print to
+ * @val: value
  * Return: length
  */
-int _bi(va_list c)
+sl_t _bi(va_list c, char *buffer, sl_t val)
 {
 	int i, j;
 	char *str;
@@ -126,7 +134,7 @@ int _bi(va_list c)
 	}
 	str[j] = '\0';
 	str = rev_string(str);
-	_puts(str);
+	val = _strcpy(buffer, str, val);
 	free(str);
-	return (j);
+	return (val);
 }
