@@ -47,29 +47,34 @@ int _printstring(va_list c, char *buffer, int size)
  */
 int _printnum(va_list c, char *buffer, int size)
 {
-	long m, j, i;
+	int m, j, i, s;
 	char *num;
 	char *sign;
 
-	sign = malloc(sizeof(char));
+	sign = malloc(sizeof(char) * 2);
 	*sign = '-';
+	*(sign + 1) = '\0';
+	s = 1;
 	m = va_arg(c, int);
-	if (m < 0)
+	if (m > 0)
 	{
+		s = 0;
 		m = m * -1;
-		size = _strcpy(buffer, sign, size);
 	}
+	printf("sign is %d\n", s);
 	j = m;
-	for (i = 0; j > 0; i++)
+	for (i = 0; j != 0; i++)
 		j = j / 10;
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
 		return (size);
 	for (j = 0; j < i; j++)
 	{
-		num[j] = m % 10 + '0';
+		num[j] = (m % 10) * (-1) + '0';
 		m = m / 10;
 	}
+	if (s == 1)
+		size = _strcpy(buffer, sign, size);
 	num[j] = '\0';
 	num = rev_string(num);
 	size = _strcpy(buffer, num, size);
