@@ -23,6 +23,9 @@ char *rev_string(char *s);
 /* print string */
 void _puts(char *str);
 
+/* char copy */
+sl_t _charcpy(char *buffer, char *src, sl_t val);
+
 /* string copy */
 sl_t _strcpy(char *buffer, char *src, sl_t val);
 

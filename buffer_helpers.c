@@ -2,6 +2,31 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+sl_t _charcpy(char *buffer, char *src, sl_t val)
+{
+	int n;
+
+	n = 0;
+	if (src[0] == '\0')
+	{
+		buffer[val.size] = src[0];
+		val.size++;
+		val.len++;
+		return (val);
+	}
+	while (src[n] != '\0')
+	{
+		buffer[val.size] = src[n];
+		n++;
+		val.size++;
+		val.len++;
+		if (val.size >= 1024)
+		{
+			val = _print_buffer(buffer, val);
+		}
+	}
+	return (val);
+}
 /**
  * _strcpy - copies and returns a string; triggers print when buffer is full
  * @buffer: destination string, output
@@ -15,13 +40,6 @@ sl_t _strcpy(char *buffer, char *src, sl_t val)
 
 	n = 0;
 
-	if (src[0] == '\0')
-	{
-		buffer[val.size] = src[0];
-		val.size++;
-		val.len++;
-		return (val);
-	}
 	while (src[n] != '\0')
 	{
 		buffer[val.size] = src[n];
