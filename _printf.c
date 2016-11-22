@@ -20,8 +20,7 @@ int _printf(const char *format, ...)
 		{"x", _printhex}, {"X", _printhexUP}, {"b", _printbinary},
 	};
 
-	size = 0;
-	temp = malloc(sizeof(char) * 2);
+	size = 0; temp = malloc(sizeof(char) * 2);
 	if (temp == NULL)
 		return (size);
 	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
@@ -44,14 +43,12 @@ int _printf(const char *format, ...)
 			}
 			if (z != 0)
 			{
-				*temp = format[i];
-				*(temp + 1) = '\0';
+				*temp = format[i]; *(temp + 1) = '\0';
 				size = _strcpy(buffer, temp, size);
 			}
 		}
 	}
-	i = size;
-	free(temp);
+	i = size; free(temp);
 	_print_buffer(buffer, size);
 	return (i);
 }
