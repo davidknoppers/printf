@@ -9,21 +9,24 @@
  * @c: argument
  * Return: octal value
  */
-int _printoct(va_list c)
+int _oct(va_list c, char *buffer, int size)
 {
-	unsigned int oct, i, j;
+	unsigned int k, j;
+	char *temp;
 
-	oct = 0;
-	i = 1;
+	temp = malloc(sizeof(char) * 12);
+	if (temp == NULL)
+		return (size);
 	j = va_arg(c, unsigned int);
-	while (j != 0)
+	for (k = 0; j != 0; k++)
 	{
-		oct += (j % 8) * i;
+		temp[k] = (j % 8) + '0';
 		j = j / 8;
-		i = 10 * i;
 	}
-
-	return (oct);
+	temp[k] = '\0';
+	temp = rev_string(temp);
+	size = _strcpy(buffer, temp, size);
+	return (size);
 }
 
 /**
@@ -31,7 +34,7 @@ int _printoct(va_list c)
  * @c: argument
  * Return: beginning of hex string
  */
-int _printhex(va_list c)
+int _hex(va_list c)
 {
 	unsigned int i, j, dig, k, z;
 	char *temp;
@@ -68,7 +71,7 @@ int _printhex(va_list c)
  * @c: argument
  * Return: hex string
  */
-int _printhexUP(va_list c)
+int _hexUP(va_list c)
 {
 	unsigned int i, j, dig, k, z;
 	char *temp;
@@ -105,7 +108,7 @@ int _printhexUP(va_list c)
  * @c: input
  * Return: length
  */
-int _printbinary(va_list c)
+int _bi(va_list c)
 {
 	int i, j;
 	char *str;
