@@ -49,6 +49,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+	buffer[size + 1] = '\0';
 	_print_buffer(buffer, size);
 	return (size);
 }
