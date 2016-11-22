@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 		{"c", _printchar}, {"s", _printstring}, {"d", _printnum},
 		{"i", _printnum}, {"u", _printunsign}, {"o", _printoct},
 		{"x", _printhex}, {"X", _printhexUP}, {"b", _printbinary},
-		{"%", _printpercent},
 	};
 
 	size = 0; temp = malloc(sizeof(char) * 2);
