@@ -26,7 +26,6 @@ int _strcpy(char *buffer, char *src, int size)
 			size = _print_buffer(buffer, size);
 		}
 	}
-	buffer[size] = '\0';
 	return (size);
 }
 
