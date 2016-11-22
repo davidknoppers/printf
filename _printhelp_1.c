@@ -53,16 +53,17 @@ int _printnum(va_list c, char *buffer, int size)
 {
 	int m, i, j;
 	char *num;
-	char sign;
+	char *sign;
 
-	sign = '-';
+	sign = malloc(sizeof(char));
+	*sign = '-';
 	m = va_arg(c, int);
 	printf("%d\n", m);
 	printf("size before %d\n", size);
 	if (m < 0)
 	{
 		m = m * -1;
-		size = _strcpy(buffer, &sign, size);
+		size = _strcpy(buffer, sign, size);
 	}
 	printf("size after %d\n", size);
 	j = m;
@@ -80,6 +81,7 @@ int _printnum(va_list c, char *buffer, int size)
 	num = rev_string(num);
 	size = _strcpy(buffer, num, size);
 	free(num);
+	free(sign);
 	return (size);
 }
 
