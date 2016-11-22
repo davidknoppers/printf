@@ -11,11 +11,11 @@
  */
 int _printoct(va_list c)
 {
-	int oct, i, j;
+	unsigned int oct, i, j;
 
 	oct = 0;
 	i = 1;
-	j = va_arg(c, int);
+	j = va_arg(c, unsigned int);
 	while (j != 0)
 	{
 		oct += (j % 8) * i;
@@ -33,7 +33,7 @@ int _printoct(va_list c)
  */
 int _printhex(va_list c)
 {
-	int i, j, dig, k, z;
+	unsigned int i, j, dig, k, z;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -42,7 +42,7 @@ int _printhex(va_list c)
 		{12, 'c'}, {13, 'd'}, {14, 'e'}, {15, 'f'},
 	};
 
-	k = va_arg(c, int);
+	k = va_arg(c, unsigned int);
 	dig = k;
 	for (i = 0; k / 10 > 0; i++)
 		k = k / 10;
@@ -70,7 +70,7 @@ int _printhex(va_list c)
  */
 int _printhexUP(va_list c)
 {
-	int i, j, dig, k, z;
+	unsigned int i, j, dig, k, z;
 	char *temp;
 	hex_t conv[] = {
 		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'},
@@ -79,7 +79,7 @@ int _printhexUP(va_list c)
 		{12, 'C'}, {13, 'D'}, {14, 'E'}, {15, 'F'},
 	};
 
-	k = va_arg(c, int);
+	k = va_arg(c, unsigned int);
 	dig = k;
 	for (i = 0; k / 10 > 0; i++)
 		k = k / 10;
