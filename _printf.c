@@ -49,6 +49,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	free(temp);
+	i = size + 1;
 	_print_buffer(buffer, size);
 	return (i);
 }
