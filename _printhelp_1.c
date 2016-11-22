@@ -62,8 +62,13 @@ int _printnum(va_list c, char *buffer, int size)
 		m = m * -1;
 	}
 	j = m;
-	for (i = 1; j != 0; i++)
-		j = j / 10;
+	if (j == 0)
+		i = 1;
+	else
+	{
+		for (i = 0; j != 0;i++)
+			j = j / 10;
+	}
 	num = malloc((i + 1) * sizeof(char));
 	if (num == NULL)
 		return (size);
