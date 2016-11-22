@@ -21,7 +21,7 @@ int _strcpy(char *buffer, char *src, int size)
 		buffer[size] = src[n];
 		n++;
 		size++;
-		if (size >= 1023)
+		if (size >= 1024)
 		{
 			size = _print_buffer(buffer, size);
 		}
