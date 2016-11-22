@@ -13,10 +13,12 @@
  */
 int _printchar(va_list c, char *buffer, int size)
 {
-	char j;
+	char *j;
 
-	j = va_arg(c, int);
-	size = _strcpy(buffer, &j, size);
+	j = malloc(sizeof(char) * 2);
+	*j = va_arg(c, int);
+	*(j + 1) = '\0';
+	size = _strcpy(buffer, j, size);
 	return (size);
 }
 
