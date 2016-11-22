@@ -2,6 +2,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+/**
+ * _charcpy - copy a character
+ * @buffer: buffer to write to
+ * @src: src copy
+ * @val: struct
+ * Return: val
+ */
 sl_t _charcpy(char *buffer, char *src, sl_t val)
 {
 	int n;
