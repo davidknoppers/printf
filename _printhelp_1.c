@@ -17,6 +17,7 @@ sl_t _char(va_list c, char *buffer, sl_t val)
 	*j = va_arg(c, int);
 	*(j + 1) = '\0';
 	val = _charcpy(buffer, j, val);
+	free (j);
 	return (val);
 }
 
