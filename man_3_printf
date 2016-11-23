@@ -10,6 +10,7 @@ _printf replicates some of the functionality of printf in c. It writes output to
 .B Return value
 _printf returns the total bytesize of the string formatted and sent to stdout,
 including non-ASCII-readable characters in the string such as the null terminator '\0'.
+
 .B Format of the format string
 The format string is a string containing zero or more characters. Ordinary characters,
 e.g. 'abc', are passed by the function to stdout without modification. Conversion specifiers
@@ -31,14 +32,31 @@ is not a valid specifier. Here are the actual specifiers:
 %o formats number into octal and sends to stdout
 
 %xX: x or X formats a number into hexadecimal and sends to stdout
+
 .SH OPTIONS
 .B const char *format
 The format string is totally optional. It simplifies the passing of variables
 into printf, but simply passing a string will work, e.g. printf("Hello Holberton\n")
+
 .SH SEE ALSO
 .I printf(3)
+
 .SH BUGS
 Currently fails to match the formatting of printf when passed a sequence of spaces and '%' symbols. 
-Does not handle printf functionality such as field width, precision and length modifiers. 
+Does not handle printf functionality such as field width, precision and length modifiers. As of 
+writing, we're also missing a few mystery checks for our %c and %s conversions so I'm pretty
+sure those can be filed under 'bugs' as well.
+
+.SH EXAMPLE
+{
+
+	int i;
+
+	i = _printf("Good doggo spotted");
+
+	_printf("The previous string was %d bytes long", i);
+
+	return (0);
+}
 .SH AUTHOR
 Jay Wang, David Knoppers, Django, Josie, Ezzie
