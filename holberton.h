@@ -12,6 +12,7 @@ typedef struct size_len
 {
 	int size;
 	int len;
+	int skip;
 } sl_t;
 
 /* basic putchar function */
@@ -62,6 +63,8 @@ sl_t _bi(va_list c, char *buffer, sl_t val);
 /* printpercent */
 sl_t _percent(va_list c, char *buffer, sl_t val);
 
+/* percent helper */
+sl_t percent(const char *format, int i, char *buffer, sl_t val);
 
 /**
  * struct functions - structure to find corresponding functions
