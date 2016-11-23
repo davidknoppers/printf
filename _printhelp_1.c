@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _char - print out character
@@ -130,6 +131,7 @@ sl_t _unsign(va_list c, char *buffer, sl_t val)
  * @val: location in buff
  * Return: size
  */
+
 sl_t _percent(va_list c, char *buffer, sl_t val)
 {
 	char *percent;
