@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		{"c", _char}, {"s", _str}, {"d", _num}, {"i", _num},
 		{"u", _unsign}, {"o", _oct}, {"x", _hex}, {"X", _hexUP},
 		{"b", _bi}, {"%", _percent},
-	}; sl_t vals = {0, 0, 0};
+	}; sl_t vals = {0, 0};
 
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
@@ -35,16 +35,8 @@ int _printf(const char *format, ...)
 			}
 			if (z != 0)
 			{
-				if (format[i] == '%')
-				{
-					vals = percent(format, i, buffer, vals);
-					i += vals.skip;
-				}
-				else
-				{
-					*temp = format[i]; *(temp + 1) = '\0';
-					vals = _strcpy(buffer, temp, vals);
-				}
+				*temp = format[i]; *(temp + 1) = '\0';
+				vals = _strcpy(buffer, temp, vals);
 			}
 		}
 	}
