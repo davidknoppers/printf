@@ -10,26 +10,21 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	char buffer[1024], *temp;
-	int i, j, z, num_of_formats, size;
+	va_list ap; char buffer[1024], *temp; int i, j, z, size;
 	print_t c_or_str[] = {
 		{"c", _char}, {"s", _str}, {"d", _num}, {"i", _num},
 		{"u", _unsign}, {"o", _oct}, {"x", _hex}, {"X", _hexUP},
 		{"b", _bi}, {"%", _percent},
-	};
-	sl_t vals = {0, 0, 0};
+	}; sl_t vals = {0, 0, 0};
 
-	temp = malloc(sizeof(char) * 2);
-	num_of_formats = sizeof(c_or_str) / sizeof(print_t);
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
-	va_start(ap, format);
+	temp = malloc(sizeof(char) * 2); va_start(ap, format);
 	if (format != NULL)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
-			for (z = 1, j = 0; j < num_of_formats; j++)
+			for (z = 1, j = 0; j < 10; j++)
 			{
 				if (format[i] == '%' &&
 				    format[i + 1] == *(c_or_str[j]).format_str)
@@ -53,6 +48,5 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	free(temp); _print_buffer(buffer, vals); size = vals.len;
-	return (size);
+	free(temp); _print_buffer(buffer, vals); size = vals.len; return (size);
 }

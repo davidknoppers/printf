@@ -3,6 +3,14 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * percent - help print out percent signs
+ * @f: lol
+ * @i: omg
+ * @buffer: the buffer
+ * @val: num to pass around
+ * Return: val
+ */
 sl_t percent(const char *f, int i, char *buffer, sl_t val)
 {
 	int j, percent;
