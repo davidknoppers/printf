@@ -1,0 +1,44 @@
+.TH man 2 "22 November 2016" "1.0" "_printf man page"
+.SH NAME
+.B _printf
+.SH SYNOPSIS
+.B #include "holberton.h"
+int _printf (const char *format, va_list ap);
+.SH DESCRIPTION
+_printf replicates some of the functionality of printf in c. It writes output to stdout given an optional format string and a sequence of arguments from va_list.
+
+.B Return value
+_printf returns the total bytesize of the string formatted and sent to stdout,
+including non-ASCII-readable characters in the string such as the null terminator '\0'.
+.B Format of the format string
+The format string is a string containing zero or more characters. Ordinary characters,
+e.g. 'abc', are passed by the function to stdout without modification. Conversion specifiers
+such as %s are preceded by a modulo % and cause the function to fetch special formatters
+and expansions. They are interpreted in the order they are passed, from left to right,
+e.g. ('%a%b%c',...) formats and prints a, then b, then c. Speaking of which, %a
+is not a valid specifier. Here are the actual specifiers:
+
+%b: formats a number into binary and sends to stdout
+
+%c: formats a char to stdout
+
+%s: formats a string to stdout
+
+%d, %i: formats a string to stdout. Digit padding is not implemented.
+
+%u: formats an unsigned int to stdout
+
+%o formats number into octal and sends to stdout
+
+%xX: x or X formats a number into hexadecimal and sends to stdout
+.SH OPTIONS
+.B const char *format
+The format string is totally optional. It simplifies the passing of variables
+into printf, but simply passing a string will work, e.g. printf("Hello Holberton\n")
+.SH SEE ALSO
+.I printf(3)
+.SH BUGS
+Currently fails to match the formatting of printf when passed a sequence of spaces and '%' symbols. 
+Does not handle printf functionality such as field width, precision and length modifiers. 
+.SH AUTHOR
+Jay Wang, David Knoppers, Django, Josie, Ezzie
