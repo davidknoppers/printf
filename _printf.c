@@ -14,8 +14,8 @@ int _printf(const char *format, ...)
 	print_t c_or_str[] = {
 		{"c", _char}, {"s", _str}, {"d", _num}, {"i", _num},
 		{"u", _unsign}, {"o", _oct}, {"x", _hex}, {"X", _hexUP},
-		{"b", _bi}, {"%", _percent},
-	}; sl_t vals = {0, 0};
+		{"b", _bi}, {"%", _percent}, {"r", _revstr}, {"R", _rot13},
+	}; sl_t vals = {0, 0, 0};
 
 	for (i = 0; i < 1024; i++)
 		buffer[i] = '\0';
@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
-			for (z = 1, j = 0; j < 10; j++)
+			for (z = 1, j = 0; j < 12; j++)
 			{
 				if (format[i] == '%' &&
 				    format[i + 1] == *(c_or_str[j]).format_str)
@@ -35,8 +35,16 @@ int _printf(const char *format, ...)
 			}
 			if (z != 0)
 			{
+				if (format[i] == '%')
+				{
+					vals = perc_parse(format, i, buffer, vals);
+					i += vals.i;
+				}
+				else
+				{
 				*temp = format[i]; *(temp + 1) = '\0';
 				vals = _strcpy(buffer, temp, vals);
+				}
 			}
 		}
 	}
