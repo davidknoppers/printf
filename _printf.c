@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 				if (format[i] == '%')
 				{
 					vals = perc_parse(format, i, buffer, vals);
-					i += vals.i;
+					i += vals.i; i--;
 				}
 				else
 				{
