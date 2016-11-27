@@ -7,6 +7,7 @@
  * struct size_len - store size of buffer and total length
  * @size: size in buffer
  * @len: total length
+ * @i: extra incrementation within the format string
  */
 typedef struct size_len
 {
