@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * _oct - print out octal number
@@ -112,12 +113,12 @@ sl_t _hexUP(va_list c, char *buffer, sl_t val)
  */
 sl_t _bi(va_list c, char *buffer, sl_t val)
 {
-	int i, j, k;
+	unsigned int i, j, k;
 	char *str;
 
 	j = 0;
 	str = malloc(sizeof(char) * 33);
-	i = va_arg(c, int);
+	i = va_arg(c, unsigned int);
 	k = i;
 	while (i != 0)
 	{
@@ -125,7 +126,7 @@ sl_t _bi(va_list c, char *buffer, sl_t val)
 		i = i / 2;
 		j++;
 	}
-	if (k < 0)
+	if (k > INT_MAX)
 	{
 		str[j] = '0';
 		j++;
