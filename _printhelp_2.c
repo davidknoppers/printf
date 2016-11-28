@@ -112,16 +112,22 @@ sl_t _hexUP(va_list c, char *buffer, sl_t val)
  */
 sl_t _bi(va_list c, char *buffer, sl_t val)
 {
-	unsigned int i, j;
+	int i, j, k;
 	char *str;
 
 	j = 0;
 	str = malloc(sizeof(char) * 33);
-	i = va_arg(c, unsigned int);
+	i = va_arg(c, int);
+	k = i;
 	while (i != 0)
 	{
 		str[j] = (i % 2) + '0';
 		i = i / 2;
+		j++;
+	}
+	if (k < 0)
+	{
+		str[j] = '0';
 		j++;
 	}
 	str[j] = '\0';
