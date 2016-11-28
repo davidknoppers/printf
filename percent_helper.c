@@ -20,7 +20,7 @@ sl_t perc_parse(const char *f, int i, char *buffer, sl_t val)
 		;
 	temp = malloc(sizeof(char) * (k + 1));
 	holder = temp;
-	for (i, perc = 1, b = 0; b < k; i++, b++, val.i++)
+	for (i = i, perc = 1, b = 0; b < k; i++, b++, val.i++)
 	{
 		if (f[i] == '%' && perc > 0)
 		{
