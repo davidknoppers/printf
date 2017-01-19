@@ -8,8 +8,8 @@ This function can handle the following modifiers:
 The return value for the function is the total character count of the output.
 
 For this project, we were only allowed to use the following advanced functions:
+
   -write
-  
   
   -malloc
   
