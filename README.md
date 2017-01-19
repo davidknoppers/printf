@@ -9,10 +9,17 @@ The return value for the function is the total character count of the output.
 
 For this project, we were only allowed to use the following advanced functions:
   -write
+  
+  
   -malloc
+  
   -free
+  
   -va_start
+  
   -va_end
+  
   -va_copy
+  
   -va_arg
   
