@@ -4,6 +4,10 @@
 #include <stdarg.h>
 
 /**
+ * this header includes all function prototypes
+ */
+
+/**
  * struct size_len - store size of buffer and total length
  * @size: size in buffer
  * @len: total length
