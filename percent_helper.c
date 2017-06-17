@@ -4,6 +4,10 @@
 #include <stdio.h>
 
 /**
+ * Does not handle all edge cases of % signs
+ */
+
+/**
  * perc_parse - parse % strs to make sure it still works
  * @f: format string
  * @i: position in format string
