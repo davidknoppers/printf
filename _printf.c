@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
- * _printf - main print functions
+ * _printf - the function that users call
  * @format: format string
  * Return: length of characters printed
  */
