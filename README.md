@@ -79,5 +79,4 @@ For this project, we were only allowed to use the following advanced functions:
   -va_copy
   
   -va_arg
-  
->>>>>>> aff44a1... Update README.md
+
