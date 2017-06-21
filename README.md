@@ -7,6 +7,7 @@ This function can handle the following modifiers:
 
 The return value for the function is the total character count of the output.
 
+<<<<<<< HEAD
 For this project, we were only allowed to use the following advanced functions from the C library:
 
 ```
@@ -62,3 +63,21 @@ Print out this string
 ```
 
 A basic main function has been included for users to test the _printf function.
+=======
+For this project, we were only allowed to use the following advanced functions:
+
+  -write
+  
+  -malloc
+  
+  -free
+  
+  -va_start
+  
+  -va_end
+  
+  -va_copy
+  
+  -va_arg
+  
+>>>>>>> aff44a1... Update README.md
